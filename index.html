@@ -517,10 +517,25 @@
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            /* Usa auto-fit para quebrar as colunas automaticamente e de forma suave */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             text-align: center;
-            gap: 30px;
+            justify-content: center;
+            justify-items: center; /* Força o alinhamento central de cada coluna */
+            align-items: center;
+            gap: 40px;
             margin-bottom: 80px;
+            width: 100%;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 100%; /* Evita que o item empurre a tela pro lado */
+            padding: 0 10px;
         }
 
         .stat-number {
@@ -530,12 +545,17 @@
             color: var(--primary);
             margin-bottom: 10px;
             text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            word-wrap: break-word; /* Proteção: quebra a linha se o texto for muito grande */
+            overflow-wrap: break-word;
+            max-width: 100%;
         }
 
         .stat-label {
             font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+            line-height: 1.4;
+            word-wrap: break-word;
         }
 
         .testimonial-slider {
@@ -940,15 +960,15 @@
         <div class="container">
             <div class="stats-grid" id="counters">
                 <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stat-number" data-target="[NUMERO_PESCADORES]">0</div>
+                    <div class="stat-number" data-target="5000">0</div>
                     <div class="stat-label">Pescadores Satisfeitos+</div>
                 </div>
                 <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="stat-number" data-target="[ANOS_DESENVOLVIMENTO]">0</div>
+                    <div class="stat-number" data-target="3">0</div>
                     <div class="stat-label">Anos de Desenvolvimento</div>
                 </div>
                 <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stat-number" data-target="[TAMANHOS_DISPONIVEIS]">0</div>
+                    <div class="stat-number" data-target="3">0</div>
                     <div class="stat-label">Tamanhos Disponíveis</div>
                 </div>
             </div>
